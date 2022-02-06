@@ -8,15 +8,22 @@ using System.Threading.Tasks;
 
 namespace BilgeAdamNewTest
 {
+    [TestFixture]
     internal class TestApproaches
     {
         [Test]
         public void TypeLogger_Class()
         {
-            var helper = new TypeLogger();
-            var logger = TypeLogger.GetProperties<Product>();
-            Assert.AreEqual("System.ObjectSystem.Collections.Generic.IEnumerable`1[BilgeAdam.TestPractise.Product]System.Collections.IEnumerableSystem.Collections.Generic.IEnumerator`1[BilgeAdam.TestPractise.Product]System.IDisposableSystem.Collections.IEnumerator", logger);
+            RunTypeLoggerTest<Product>("BilgeAdam.TestPractise.Product,Product,Class,");
+            RunTypeLoggerTest<Category>("BilgeAdam.TestPractise.Category,Category,Enum,ValueType,IComparable,IFormattable,IConvertible,");
 
+        }
+
+        private static void RunTypeLoggerTest<T>(string expection)
+        {
+            var helper = new TypeLogger();
+            var logger = helper.GetTypeProperties<T>();
+            Assert.AreEqual(expection, logger);
         }
     }
 }

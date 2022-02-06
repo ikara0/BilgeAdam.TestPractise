@@ -4,36 +4,31 @@ namespace BilgeAdam.TestPractise
 {
     public class TypeLogger
     {
-        public static string GetProperties<T>()
+        public string GetTypeProperties<T>()
         {
             var sb = new StringBuilder();
 
             Type type = typeof(T);
-            var name = type.Name;
-            var fullName = type.FullName;
+            sb.Append(type.FullName + ",");
+            sb.Append(type.Name + ",");
 
-
-            if (type.IsEnum)
-            {
-                sb.Append(type.ToString());
-            }
-
-            if (!(string.IsNullOrEmpty(type.BaseType.ToString())))
-            {
-                var baseClass = type.BaseType;
-                sb.Append(baseClass.ToString());
-            }
-
+            if (type.IsClass) sb.Append("Class,");
+            if (type.IsEnum) sb.Append("Enum,");
+            if (type.IsInterface) sb.Append("Interface,");
+            if (type.IsAbstract) sb.Append("Abstract,");
+            if (type.IsPrimitive) sb.Append("Primitive,");
+            if (type.IsValueType) sb.Append("ValueType,");
             var interfaces = type.GetInterfaces();
-            if (interfaces.Length > 0)
+            if (interfaces.Any())
             {
                 foreach (var item in interfaces)
                 {
-                    sb.Append(item.ToString());
+                    sb.Append(item.Name + ",");
                 }
             }
 
-                return sb.ToString();
+
+            return sb.ToString();
         }
     }
 }
