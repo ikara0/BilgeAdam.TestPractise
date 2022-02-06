@@ -13,7 +13,7 @@ namespace BilgeAdam.TestPractise
             var fullName = type.FullName;
 
 
-            if (type == typeof(Enum))
+            if (type.IsEnum)
             {
                 sb.Append(type.ToString());
             }

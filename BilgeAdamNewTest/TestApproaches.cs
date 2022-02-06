@@ -14,8 +14,8 @@ namespace BilgeAdamNewTest
         public void TypeLogger_Class()
         {
             var helper = new TypeLogger();
-            var logger = helper.GetTypeProperties<Product>();
-            Assert.AreEqual("BilgeAdam.Product,Product,Class", logger);
+            var logger = TypeLogger.GetProperties<Product>();
+            Assert.AreEqual("System.ObjectSystem.Collections.Generic.IEnumerable`1[BilgeAdam.TestPractise.Product]System.Collections.IEnumerableSystem.Collections.Generic.IEnumerator`1[BilgeAdam.TestPractise.Product]System.IDisposableSystem.Collections.IEnumerator", logger);
 
         }
     }
