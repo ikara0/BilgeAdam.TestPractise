@@ -16,7 +16,7 @@ namespace BilgeAdamNewTest
         {
             RunTypeLoggerTest<Product>("BilgeAdam.TestPractise.Product,Product,Class,");
             RunTypeLoggerTest<Category>("BilgeAdam.TestPractise.Category,Category,Enum,ValueType,IComparable,IFormattable,IConvertible,");
-
+            RunTypeLoggerTest<IProduct>("BilgeAdam.TestPractise.IProduct,IProduct,Interface,Abstract,");
         }
 
         private static void RunTypeLoggerTest<T>(string expection)

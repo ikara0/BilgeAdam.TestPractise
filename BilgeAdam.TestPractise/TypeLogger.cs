@@ -27,7 +27,6 @@ namespace BilgeAdam.TestPractise
                 }
             }
 
-
             return sb.ToString();
         }
     }

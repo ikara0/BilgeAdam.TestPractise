@@ -7,7 +7,8 @@ namespace BilgeAdam.TestPractise
     {
         public static void Main(string[] arg)
         {
-
+            var type = typeof(IProduct);
+            Console.WriteLine(type.FullName);
         }
     }
 }
